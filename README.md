@@ -23,7 +23,7 @@
     <img alt="Tests" src="https://img.shields.io/circleci/project/github/n4bb12/nehemiah/master.svg?style=flat-square&label=Tests&logo=circleci">
   </a>
   <a href="https://raw.githubusercontent.com/n4bb12/nehemiah/master/LICENSE">
-    <img alt="License" src="https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square">
+    <img alt="License" src="https://img.shields.io/badge/License-ISC-lightgrey.svg?style=flat-square">
   </a>
   <a href="#">
     <img alt="Early Version" src="https://img.shields.io/badge/Status-Early Version-red.svg?style=flat-square">
