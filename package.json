@@ -28,7 +28,11 @@
     "prepublishOnly": "yarn build",
     "test": "jest"
   },
+  "dependencies": {
+    "globby": "^8.0.1"
+  },
   "devDependencies": {
+    "@types/globby": "^8.0.0",
     "@types/jest": "^23.3.1",
     "@types/node": "^10.7.1",
     "jest": "^23.5.0",
