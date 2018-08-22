@@ -20,16 +20,16 @@
 
 <p align="center">
   <a href="https://circleci.com/gh/n4bb12/nehemiah">
-    <img alt="Tests" src="https://img.shields.io/circleci/project/github/n4bb12/nehemiah/master.svg?style=flat-square&label=Tests&logo=circleci">
+    <img alt="CircleCI" src="https://img.shields.io/circleci/project/github/n4bb12/nehemiah/master.svg?style=flat-square&label=CircleCI&logo=circleci">
   </a>
   <a href="https://raw.githubusercontent.com/n4bb12/nehemiah/master/LICENSE">
     <img alt="License" src="https://img.shields.io/badge/License-ISC-lightgrey.svg?style=flat-square">
   </a>
   <a href="#">
-    <img alt="Early Version" src="https://img.shields.io/badge/Status-Early Version-red.svg?style=flat-square">
+    <img alt="Status" src="https://img.shields.io/badge/Status-Early Version-red.svg?style=flat-square">
   </a>
 </p>
 
 ## Attribution
 
-<div>Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/free-icon/divide_1070261" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<div>Logo made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/free-icon/divide_1070261" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
