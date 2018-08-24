@@ -2,6 +2,7 @@ import { copyFile } from "./copy"
 import { deleteFiles } from "./delete"
 import { fileExists } from "./exists"
 import { findFiles, findOneFileWithError, findOneFileWithWarning } from "./find"
+import { logger } from "./logger"
 import { modifyFile } from "./modify"
 import { File, Files, Modifier, Nothing } from "./types"
 
@@ -37,6 +38,10 @@ export default class Nehemiah {
 
   public async modify(source: string, modifier: Modifier): Nothing {
     return modifyFile(this.cwd, source, modifier)
+  }
+
+  public warn(...args): void {
+    logger.warn(...args)
   }
 
 }

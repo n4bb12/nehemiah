@@ -1,6 +1,6 @@
 import globby from "globby"
 
-import { logger } from "./Logger"
+import { logger } from "./logger"
 import { File, Files } from "./types"
 
 export const defaultOptions = {
