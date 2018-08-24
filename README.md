@@ -46,26 +46,30 @@ yarn add nehemiah
 ```ts
 import Nehemiah from "nehemiah"
 
-const n = new Nehemiah(process.cwd())
+const projects = ["a", "b", "c"]
 
-n.modify("package.json", p => {
-  p.author = "Abraham Schilling"
+projects.forEach(dir => {
+  const n = new Nehemiah(dir)
 
-  if (!Array.isArray(p.keywords) || p.keywords.length < 3) {
-    n.warn("not enough keywords")
+  n.modify("package.json", p => {
+    p.author = "Abraham Schilling"
+
+    if (!Array.isArray(p.keywords) || p.keywords.length < 3) {
+      n.warn("not enough keywords")
+    }
+  })
+
+  if (!n.exists("license*")) {
+    n.warn("missing license")
   }
+
+  n.delete("*.log")
+
+  n.copy(__dirname, "templates", ".editorconfig").to(".editorconfig")
+
+  n.run("yarn upgrade")
+  n.run("git fetch --prune")
 })
-
-if (!n.exists("license*")) {
-  n.warn("missing license")
-}
-
-n.delete("*.log")
-
-n.copy(__dirname, "templates", ".editorconfig").to(".editorconfig")
-
-n.run("yarn upgrade")
-n.run("git fetch --prune")
 ```
 
 ## Attribution
