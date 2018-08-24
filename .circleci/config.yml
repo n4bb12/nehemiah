@@ -10,7 +10,7 @@ jobs:
             - yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
             - yarn-cache-{{ .Branch }}
             - yarn-cache-
-      - run: yarn install
+      - run: yarn install --frozen-lockfile --no-progress
       - save_cache:
           key: yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths: node_modules
@@ -35,7 +35,7 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run: yarn test --maxWorkers 2
+      - run: yarn test:ci
 
 workflows:
   version: 2
