@@ -3,42 +3,42 @@ import * as del from "del"
 import * as globby from "globby"
 import * as path from "path"
 
-const findDefaultOptions = {
-  dot: true,
-  expandDirectories: true,
-  gitignore: true,
-  onlyFiles: true,
-}
-
-const copyDefaultOptions = {
-  overwrite: true,
-}
-
-const deleteDefaultOptions = {
-  dot: true,
-  expandDirectories: true,
-  gitignore: false,
-  onlyFiles: false,
-}
-
 export type File = Promise<string>
 export type Files = Promise<string[]>
 export type Nothing = Promise<void>
 
 export default class Nehemiah {
 
+  private static readonly findDefaultOptions = {
+    dot: true,
+    expandDirectories: true,
+    gitignore: true,
+    onlyFiles: true,
+  }
+
+  private static readonly copyDefaultOptions = {
+    overwrite: true,
+  }
+
+  private static readonly deleteDefaultOptions = {
+    dot: true,
+    expandDirectories: true,
+    gitignore: false,
+    onlyFiles: false,
+  }
+
   private readonly findOptions = Object.assign({},
-    findDefaultOptions,
+    Nehemiah.findDefaultOptions,
     { cwd: this.cwd || process.cwd() },
   )
 
   private readonly copyOptions = Object.assign({},
-    copyDefaultOptions,
+    Nehemiah.copyDefaultOptions,
     { cwd: this.cwd || process.cwd() },
   )
 
   private readonly deleteOptions = Object.assign({},
-    deleteDefaultOptions,
+    Nehemiah.deleteDefaultOptions,
     { cwd: this.cwd || process.cwd() },
   )
 
