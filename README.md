@@ -26,7 +26,7 @@
     <img alt="License" src="https://img.shields.io/badge/License-ISC-lightgrey.svg?style=flat-square">
   </a>
   <a href="#">
-    <img alt="Status" src="https://img.shields.io/badge/Status-Working Draft-red.svg?style=flat-square">
+    <img alt="Status" src="https://img.shields.io/badge/Status-Working%20Draft-EE96B0.svg?style=flat-square">
   </a>
 </p>
 
