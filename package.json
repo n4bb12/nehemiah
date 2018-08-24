@@ -30,16 +30,21 @@
     "test:ci": "ava"
   },
   "dependencies": {
+    "chalk": "^2.4.1",
     "cp-file": "^6.0.0",
     "del": "^3.0.0",
-    "globby": "^8.0.1"
+    "globby": "^8.0.1",
+    "graceful-fs": "^4.1.11",
+    "pify": "^4.0.0"
   },
   "devDependencies": {
     "@types/cp-file": "^4.2.0",
     "@types/cpy": "^5.1.0",
     "@types/del": "^3.0.1",
     "@types/globby": "^8.0.0",
+    "@types/graceful-fs": "^4.1.2",
     "@types/node": "^10.9.0",
+    "@types/pify": "^3.0.2",
     "ava": "1.0.0-beta.7",
     "del-cli": "^1.1.0",
     "ts-node": "^7.0.1",

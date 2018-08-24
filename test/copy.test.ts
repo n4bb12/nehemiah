@@ -17,7 +17,7 @@ test("copy file", async t => {
   await n.delete(target)
 })
 
-test("copy non-existing file throws", async t => {
+test("copy non-existing file throws error", async t => {
   const file = "non-existing"
 
   t.falsy(await n.exists(file))
