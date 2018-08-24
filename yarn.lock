@@ -69,10 +69,10 @@
     trim-right "^1.0.1"
 
 "@babel/generator@^7.0.0-beta.54":
-  version "7.0.0-rc.2"
-  resolved "https://registry.npmjs.org/@babel/generator/-/generator-7.0.0-rc.2.tgz#7aed8fb4ef1bdcc168225096b5b431744ba76bf8"
+  version "7.0.0-rc.3"
+  resolved "https://registry.npmjs.org/@babel/generator/-/generator-7.0.0-rc.3.tgz#3267085de2d9b8779bde79052ee5f7070d99a5ab"
   dependencies:
-    "@babel/types" "7.0.0-rc.2"
+    "@babel/types" "7.0.0-rc.3"
     jsesc "^2.5.1"
     lodash "^4.17.10"
     source-map "^0.5.0"
@@ -194,8 +194,8 @@
   resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.0.0-rc.1.tgz#d009a9bba8175d7b971e30cd03535b278c44082d"
 
 "@babel/parser@^7.0.0-beta.54":
-  version "7.0.0-rc.2"
-  resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.0.0-rc.2.tgz#a98c01af5834e71d48a5108e3aeeee333cdf26c4"
+  version "7.0.0-rc.3"
+  resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.0.0-rc.3.tgz#859d7b60ef6b939aab5f6d4f4bffbb7bafdc418b"
 
 "@babel/plugin-proposal-async-generator-functions@7.0.0-rc.1":
   version "7.0.0-rc.1"
@@ -299,9 +299,9 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@babel/types@7.0.0-rc.2":
-  version "7.0.0-rc.2"
-  resolved "https://registry.npmjs.org/@babel/types/-/types-7.0.0-rc.2.tgz#8e025b78764cee8751823e308558a3ca144ebd9d"
+"@babel/types@7.0.0-rc.3":
+  version "7.0.0-rc.3"
+  resolved "https://registry.npmjs.org/@babel/types/-/types-7.0.0-rc.3.tgz#877ebc543b139f4a1e4c9bd8849c25ab9aea8f41"
   dependencies:
     esutils "^2.0.2"
     lodash "^4.17.10"
