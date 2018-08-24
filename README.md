@@ -26,9 +26,42 @@
     <img alt="License" src="https://img.shields.io/badge/License-ISC-lightgrey.svg?style=flat-square">
   </a>
   <a href="#">
-    <img alt="Status" src="https://img.shields.io/badge/Status-Early Version-red.svg?style=flat-square">
+    <img alt="Status" src="https://img.shields.io/badge/Status-Working Draft-red.svg?style=flat-square">
   </a>
 </p>
+
+## Install
+
+```
+yarn add nehemiah
+```
+
+## Usage
+
+```ts
+import Nehemiah from "nehemiah"
+
+const n = new Nehemiah(process.cwd())
+
+n.modify("package.json", p => {
+  p.author = "Abraham Schilling"
+
+  if (!Array.isArray(p.keywords) || p.keywords.length < 3) {
+    n.warn("not enough keywords")
+  }
+})
+
+if (!n.exists("license*")) {
+  n.warn("missing license")
+}
+
+n.delete("*.log")
+
+n.copy(__dirname, "templates", ".editorconfig").to(".editorconfig")
+
+n.run("yarn upgrade")
+n.run("git fetch --prune")
+```
 
 ## Attribution
 
