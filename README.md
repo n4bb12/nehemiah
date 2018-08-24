@@ -43,6 +43,8 @@ yarn add nehemiah
 
 ## Usage
 
+When the basic [requirements](REQUIREMENTS.md) are implemented, you will be able to use it as shown below:
+
 ```ts
 import Nehemiah from "nehemiah"
 
