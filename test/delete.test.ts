@@ -1,21 +1,21 @@
 import test from "ava"
 
-import Nehemiah from "../src"
+import { copyFile, deleteFiles, fileExists } from "../src"
 
-const n = new Nehemiah(__dirname)
+const cwd = __dirname
 
 test("delete non-existing file", async t => {
   const file = "does-not-exist"
-  await n.delete(file)
+  await deleteFiles(cwd, file)
 })
 
 test("delete existing file", async t => {
   const source = "delete.test.ts"
   const target = source + ".bak"
 
-  await n.copy(source, target)
-  t.truthy(await n.exists(target))
+  await copyFile(cwd, source, target)
+  t.truthy(await fileExists(cwd, target))
 
-  await n.delete(target)
-  t.falsy(await n.exists(target))
+  await deleteFiles(cwd, target)
+  t.falsy(await fileExists(cwd, target))
 })

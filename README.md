@@ -54,7 +54,7 @@ projects.forEach(dir => {
   const n = new Nehemiah(dir)
 
   n.modify("package.json", p => {
-    p.author = "Abraham Schilling"
+    p.author = "Esra"
 
     if (!Array.isArray(p.keywords) || p.keywords.length < 3) {
       n.warn("not enough keywords")

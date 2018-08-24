@@ -1,18 +1,18 @@
 import test from "ava"
 
-import Nehemiah from "../src"
+import { modifyFile } from "../src"
 
-const n = new Nehemiah(__dirname)
+const cwd = __dirname
 const noop = x => x
 
 test("unknown extension throws error", async t => {
-  const unknownExtension = "ts"
+  const unknownExt = "ts"
 
   const error: Error = await t.throwsAsync(async () => {
-    await n.modify("modify.test." + unknownExtension, noop)
+    await modifyFile(cwd, "modify.test." + unknownExt, noop)
   })
 
-  t.true(error.message.includes(unknownExtension))
+  t.true(error.message.includes(unknownExt))
 })
 
 test.todo("missing file logs warning")
