@@ -27,23 +27,25 @@ export default class Nehemiah {
     onlyFiles: false,
   }
 
+  private readonly instanceOptions = { cwd: this.cwd }
+
   private readonly findOptions = Object.assign({},
     Nehemiah.findDefaultOptions,
-    { cwd: this.cwd || process.cwd() },
+    this.instanceOptions,
   )
 
   private readonly copyOptions = Object.assign({},
     Nehemiah.copyDefaultOptions,
-    { cwd: this.cwd || process.cwd() },
+    this.instanceOptions,
   )
 
   private readonly deleteOptions = Object.assign({},
     Nehemiah.deleteDefaultOptions,
-    { cwd: this.cwd || process.cwd() },
+    this.instanceOptions,
   )
 
   constructor(
-    private cwd?: string,
+    private cwd: string = process.cwd(),
   ) { }
 
   /**
