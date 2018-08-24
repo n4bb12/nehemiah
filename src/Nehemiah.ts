@@ -1,7 +1,7 @@
-import * as cpFile from "cp-file"
-import * as del from "del"
-import * as globby from "globby"
-import * as path from "path"
+import cpFile from "cp-file"
+import del from "del"
+import globby from "globby"
+import path from "path"
 
 export type File = Promise<string>
 export type Files = Promise<string[]>
