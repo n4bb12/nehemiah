@@ -30,6 +30,11 @@
   </a>
 </p>
 
+## About
+
+Basically monorepos without a monorepo.  
+Nehemiah synchronizes directories based on code you write using a simple API.
+
 ## Install
 
 ```
