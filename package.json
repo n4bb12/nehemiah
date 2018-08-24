@@ -22,7 +22,7 @@
   "types": "index.d.ts",
   "scripts": {
     "build": "yarn clean && yarn compile",
-    "clean": "rimraf dist",
+    "clean": "del-cli dist",
     "compile": "tsc --project tsconfig.json",
     "lint": "tslint --project tsconfig.json --config tslint.json --format stylish --fix",
     "prepublishOnly": "yarn build",
@@ -30,13 +30,18 @@
     "test:ci": "ava"
   },
   "dependencies": {
+    "cp-file": "^6.0.0",
+    "del": "^3.0.0",
     "globby": "^8.0.1"
   },
   "devDependencies": {
+    "@types/cp-file": "^4.2.0",
+    "@types/cpy": "^5.1.0",
+    "@types/del": "^3.0.1",
     "@types/globby": "^8.0.0",
-    "rimraf": "^2.6.2",
     "@types/node": "^10.9.0",
     "ava": "1.0.0-beta.7",
+    "del-cli": "^1.1.0",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "typescript": "^3.0.1"
