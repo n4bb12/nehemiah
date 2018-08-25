@@ -1,24 +1,25 @@
 import test from "ava"
 import sinon, { SinonSpy } from "sinon"
 
-import { logger } from "../src"
+import { Logger } from "../src"
 
-let log: SinonSpy
+const logger = new Logger()
+let consoleLog: SinonSpy
 
 test.beforeEach(() => {
-  log = sinon.spy(console, "log")
+  consoleLog = sinon.spy(console, "log")
 })
 
 test.afterEach(() => {
-  (console as any).log.restore()
+  consoleLog.restore()
 })
 
 test("logger works", async t => {
   logger.warn("test", "warning")
 
-  t.true(log.calledOnce)
+  t.true(consoleLog.calledOnce)
 
-  const args = JSON.stringify(log.args)
+  const args = JSON.stringify(consoleLog.args)
   t.regex(args, /test/)
   t.regex(args, /warning/)
 })

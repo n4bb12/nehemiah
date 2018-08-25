@@ -1,7 +1,6 @@
 import globby from "globby"
 
-import { logger } from "./logger"
-import { File, Files } from "./types"
+import { Context, File, Files } from "./types"
 
 export const defaultOptions = {
   dot: true,
@@ -14,13 +13,13 @@ export const defaultOptions = {
  * https://github.com/sindresorhus/globby#api
  * https://github.com/mrmlnc/fast-glob#options-1
  */
-export async function findFiles(cwd: string, patterns: string | string[]): Files {
-  const options = Object.assign({ cwd }, defaultOptions)
+export async function findFiles(context: Context, patterns: string | string[]): Files {
+  const options = Object.assign({ cwd: context.cwd }, defaultOptions)
   return globby(patterns, options)
 }
 
-export async function findOneFileWithError(cwd: string, pattern: string): File {
-  const filenames = await findFiles(cwd, pattern)
+export async function findOneFileWithError(context: Context, pattern: string): File {
+  const filenames = await findFiles(context, pattern)
   if (filenames.length === 0) {
     throw new Error("Source file does not exist: " + pattern)
   }
@@ -30,14 +29,14 @@ export async function findOneFileWithError(cwd: string, pattern: string): File {
   return filenames[0]
 }
 
-export async function findOneFileWithWarning(cwd: string, pattern: string): File {
-  const filenames = await findFiles(cwd, pattern)
+export async function findOneFileWithWarning(context: Context, pattern: string): File {
+  const filenames = await findFiles(context, pattern)
   if (filenames.length === 0) {
-    logger.warn("Source file does not exist: " + pattern)
+    context.logger.warn("Source file does not exist: " + pattern)
     return filenames[0]
   }
   if (filenames.length !== 1) {
-    logger.warn("Only one source file allowed: " + pattern)
+    context.logger.warn("Only one source file allowed: " + pattern)
     return filenames[0]
   }
   return filenames[0]

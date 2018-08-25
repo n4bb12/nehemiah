@@ -2,46 +2,49 @@ import { copyFile } from "./copy"
 import { deleteFiles } from "./delete"
 import { fileExists } from "./exists"
 import { findFiles, findOneFileWithError, findOneFileWithWarning } from "./find"
-import { logger } from "./logger"
+import { Logger } from "./logger"
 import { modifyFile } from "./modify"
-import { File, Files, Modifier, Nothing } from "./types"
+import { Context, File, Files, Modifier, Nothing } from "./types"
 
 export default class Nehemiah {
 
+  public readonly logger = new Logger()
+  private readonly context: Context = this
+
   constructor(
-    private cwd: string = process.cwd(),
+    public readonly cwd: string = process.cwd(),
   ) { }
 
   public async find(patterns: string | string[]): Files {
-    return findFiles(this.cwd, patterns)
+    return findFiles(this.context, patterns)
   }
 
   public async findOneWithError(pattern: string): File {
-    return findOneFileWithError(this.cwd, pattern)
+    return findOneFileWithError(this.context, pattern)
   }
 
   public async findOneWithWarning(pattern: string): File {
-    return findOneFileWithWarning(this.cwd, pattern)
+    return findOneFileWithWarning(this.context, pattern)
   }
 
   public async exists(pattern: string): File {
-    return fileExists(this.cwd, pattern)
+    return fileExists(this.context, pattern)
   }
 
   public async copy(source: string, target: string): Nothing {
-    return copyFile(this.cwd, source, target)
+    return copyFile(this.context, source, target)
   }
 
   public async delete(patterns: string | string[]): Files {
-    return deleteFiles(this.cwd, patterns)
+    return deleteFiles(this.context, patterns)
   }
 
   public async modify(source: string, modifier: Modifier): Nothing {
-    return modifyFile(this.cwd, source, modifier)
+    return modifyFile(this.context, source, modifier)
   }
 
   public warn(...args): void {
-    logger.warn(...args)
+    this.logger.warn(...args)
   }
 
 }

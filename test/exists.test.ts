@@ -1,15 +1,19 @@
 import test from "ava"
 
-import { fileExists } from "../src"
+import Nehemiah from "../src"
 
 const cwd = __dirname
 
 test("existing file exists", async t => {
+  const n = new Nehemiah(cwd)
   const file = "find.test.ts"
-  t.truthy(await fileExists(cwd, file))
+
+  t.truthy(await n.exists(file))
 })
 
 test("non-existing file doesn't exist", async t => {
+  const n = new Nehemiah(cwd)
   const file = "find.ts"
-  t.falsy(await fileExists(cwd, file))
+
+  t.falsy(await n.exists(file))
 })

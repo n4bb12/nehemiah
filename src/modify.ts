@@ -3,7 +3,7 @@ import path from "path"
 import pify from "pify"
 
 import { findOneFileWithWarning } from "./find"
-import { Converter, Modifier, Nothing } from "./types"
+import { Context, Converter, Modifier, Nothing } from "./types"
 
 const readFile = pify(fs.readFile)
 const writeFile = pify(fs.writeFile)
@@ -17,8 +17,8 @@ const converters: {
   },
 }
 
-export async function modifyFile(cwd: string, source: string, modifier: Modifier): Nothing {
-  const filename = await findOneFileWithWarning(cwd, source)
+export async function modifyFile(context: Context, source: string, modifier: Modifier): Nothing {
+  const filename = await findOneFileWithWarning(context, source)
   if (filename) {
     const ext = path.extname(filename)
 
@@ -27,7 +27,7 @@ export async function modifyFile(cwd: string, source: string, modifier: Modifier
       throw new Error("No converter for extension: " + ext)
     }
 
-    const sourceFile = path.join(cwd, filename)
+    const sourceFile = path.join(context.cwd, filename)
     let text = await readFile(sourceFile, "utf8")
     let value = converter.parse(text)
 
