@@ -6,6 +6,8 @@ import {
   findOneFileOrError,
   findOneFileOrWarning,
   modifyFile,
+  readFile,
+  writeFile,
 } from "./functions"
 import { Logger } from "./logger"
 import { Context, File, Files, Modifier, Nothing } from "./types"
@@ -43,8 +45,16 @@ export default class Nehemiah {
     return deleteFiles(this.context, globs)
   }
 
-  public async modify(source: string, modifier: Modifier): Nothing {
-    return modifyFile(this.context, source, modifier)
+  public async read<T>(filename: string): Promise<T | null> {
+    return readFile<T>(this.context, filename)
+  }
+
+  public async write<T>(filename: string, value: T): Nothing {
+    return writeFile<T>(this.context, filename, value)
+  }
+
+  public async modify<T>(sourceGlob: string, modifier: Modifier<T>): Nothing {
+    return modifyFile<T>(this.context, sourceGlob, modifier)
   }
 
   public warn(...args): void {
