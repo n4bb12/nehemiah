@@ -53,7 +53,7 @@ const projects = ["a", "b", "c"]
 projects.forEach(dir => {
   const n = new Nehemiah(dir)
 
-  n.modify("package.json", p => {
+  await n.modify("package.json", async p => {
     p.author = "Esra"
 
     if (!Array.isArray(p.keywords) || p.keywords.length < 3) {
@@ -65,12 +65,10 @@ projects.forEach(dir => {
     n.warn("missing license")
   }
 
-  n.delete("*.log")
-
-  n.copy(__dirname, "templates", ".editorconfig").to(".editorconfig")
-
-  n.run("yarn upgrade")
-  n.run("git fetch --prune")
+  await n.delete("*.log")
+  await n.copy(__dirname, "templates", ".editorconfig").to(".editorconfig")
+  await n.run("yarn upgrade")
+  await n.run("git fetch --prune")
 })
 ```
 
