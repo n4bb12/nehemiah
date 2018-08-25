@@ -15,11 +15,11 @@ test.afterEach(() => {
 })
 
 test("logger works", async t => {
-  logger.warn("test", "warning")
+  logger.warn("Test", "warning")
 
   t.true(consoleLog.calledOnce)
 
   const args = JSON.stringify(consoleLog.args)
-  t.regex(args, /test/)
+  t.regex(args, /Test/)
   t.regex(args, /warning/)
 })

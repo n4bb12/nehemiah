@@ -15,7 +15,7 @@ test("delete existing file", async t => {
   const source = "delete.test.ts"
   const target = source + ".bak"
 
-  await n.copy(source, target)
+  await n.copy(source).to(target)
   t.truthy(await n.exists(target))
 
   await n.delete(target)

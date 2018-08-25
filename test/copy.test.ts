@@ -12,7 +12,7 @@ test("copy file", async t => {
   await n.delete(target)
   t.falsy(await n.exists(target))
 
-  await n.copy(source, target)
+  await n.copy(source).to(target)
   t.truthy(await n.exists(target))
 
   await n.delete(target)
@@ -25,7 +25,7 @@ test("copy non-existing file throws error", async t => {
   t.falsy(await n.exists(file))
 
   const error: Error = await t.throwsAsync(async () => {
-    await n.copy(file, file + ".bak")
+    await n.copy(file).to(file + ".bak")
   })
 
   t.true(error.message.includes(file))

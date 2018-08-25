@@ -10,7 +10,7 @@ import {
   writeFile,
 } from "./functions"
 import { Logger } from "./logger"
-import { Context, File, Files, Modifier, Nothing } from "./types"
+import { Context, File, Files, Modifier, Nothing, To } from "./types"
 
 export default class Nehemiah {
 
@@ -37,8 +37,8 @@ export default class Nehemiah {
     return fileExists(this.context, glob)
   }
 
-  public async copy(sourceGlob: string, target: string): Nothing {
-    return copyFile(this.context, sourceGlob, target)
+  public copy(glob: string, ...globs: string[]): To {
+    return copyFile(this.context, glob, ...globs)
   }
 
   public async delete(globs: string | string[]): Files {
