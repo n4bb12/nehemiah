@@ -1,8 +1,8 @@
 import del from "del"
 import path from "path"
 
+import { Context, Files } from "../types"
 import { fileExists } from "./exists"
-import { Context, Files } from "./types"
 
 const defaultOptions = {
   dot: true,
@@ -14,21 +14,21 @@ const defaultOptions = {
 /**
  * https://github.com/sindresorhus/del#api
  */
-export async function deleteFiles(context: Context, patterns: string | string[]): Files {
+export async function deleteFiles(context: Context, globs: string | string[]): Files {
   const options = Object.assign({ cwd: context.cwd }, defaultOptions)
-  if (!Array.isArray(patterns)) {
-    patterns = [patterns]
+  if (!Array.isArray(globs)) {
+    globs = [globs]
   }
-  const deletions = patterns.map(pattern => {
-    return deleteFile(context, pattern, options)
+  const deletions = globs.map(glob => {
+    return deleteFile(context, glob, options)
   })
   return Promise.all(deletions).then(fileArrs => {
     return fileArrs.concat.apply([])
   })
 }
 
-async function deleteFile(context: Context, pattern: string, options): Files {
-  const exists = await fileExists(context, pattern)
+async function deleteFile(context: Context, glob: string, options): Files {
+  const exists = await fileExists(context, glob)
   if (exists) {
     const file = path.join(options.cwd, exists)
     return del(file, options)

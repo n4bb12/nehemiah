@@ -1,9 +1,13 @@
-import { copyFile } from "./copy"
-import { deleteFiles } from "./delete"
-import { fileExists } from "./exists"
-import { findFiles, findOneFileWithError, findOneFileWithWarning } from "./find"
+import {
+  copyFile,
+  deleteFiles,
+  fileExists,
+  findFiles,
+  findOneFileOrError,
+  findOneFileOrWarning,
+  modifyFile,
+} from "./functions"
 import { Logger } from "./logger"
-import { modifyFile } from "./modify"
 import { Context, File, Files, Modifier, Nothing } from "./types"
 
 export default class Nehemiah {
@@ -15,28 +19,28 @@ export default class Nehemiah {
     public readonly cwd: string = process.cwd(),
   ) { }
 
-  public async find(patterns: string | string[]): Files {
-    return findFiles(this.context, patterns)
+  public async find(globs: string | string[]): Files {
+    return findFiles(this.context, globs)
   }
 
-  public async findOneWithError(pattern: string): File {
-    return findOneFileWithError(this.context, pattern)
+  public async findOneOrError(glob: string): File {
+    return findOneFileOrError(this.context, glob)
   }
 
-  public async findOneWithWarning(pattern: string): File {
-    return findOneFileWithWarning(this.context, pattern)
+  public async findOneOrWarning(glob: string): File {
+    return findOneFileOrWarning(this.context, glob)
   }
 
-  public async exists(pattern: string): File {
-    return fileExists(this.context, pattern)
+  public async exists(glob: string): File {
+    return fileExists(this.context, glob)
   }
 
-  public async copy(source: string, target: string): Nothing {
-    return copyFile(this.context, source, target)
+  public async copy(sourceGlob: string, target: string): Nothing {
+    return copyFile(this.context, sourceGlob, target)
   }
 
-  public async delete(patterns: string | string[]): Files {
-    return deleteFiles(this.context, patterns)
+  public async delete(globs: string | string[]): Files {
+    return deleteFiles(this.context, globs)
   }
 
   public async modify(source: string, modifier: Modifier): Nothing {

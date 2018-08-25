@@ -2,8 +2,9 @@ import fs from "graceful-fs"
 import path from "path"
 import pify from "pify"
 
-import { findOneFileWithWarning } from "./find"
-import { Context, Converter, Modifier, Nothing } from "./types"
+import { Context, Converter, Modifier, Nothing } from "../types"
+
+import { findOneFileOrWarning } from "./find"
 
 const readFile = pify(fs.readFile)
 const writeFile = pify(fs.writeFile)
@@ -17,8 +18,8 @@ const converters: {
   },
 }
 
-export async function modifyFile(context: Context, source: string, modifier: Modifier): Nothing {
-  const filename = await findOneFileWithWarning(context, source)
+export async function modifyFile<T>(context: Context, source: string, modifier: Modifier<T>): Nothing {
+  const filename = await findOneFileOrWarning(context, source)
   if (filename) {
     const ext = path.extname(filename)
 
@@ -29,9 +30,9 @@ export async function modifyFile(context: Context, source: string, modifier: Mod
 
     const sourceFile = path.join(context.cwd, filename)
     let text = await readFile(sourceFile, "utf8")
-    let value = converter.parse(text)
+    let value: T = converter.parse(text)
 
-    value = modifier(value) || value
+    value = await modifier(value) || value
 
     text = converter.stringify(value)
     return writeFile(sourceFile, text, "utf8")
