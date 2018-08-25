@@ -32,7 +32,7 @@
 
 ## About
 
-Basically monorepos without a monorepo.  
+Basically monorepos without the monorepo.  
 Nehemiah synchronizes directories based on code you write using a simple API.
 
 ## Install
