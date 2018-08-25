@@ -27,5 +27,34 @@ test("missing file logs warning", async t => {
   t.true(loggerWarn.calledOnce)
 })
 
-test.todo("modify uses changed object")
-test.todo("modify uses returned object")
+test("modify uses changed object", async t => {
+  const n = new Nehemiah(cwd)
+  const time = new Date().getTime()
+  const file = "modify-changed.json"
+  await n.write(file, {})
+
+  await n.modify<any>(file, async obj => {
+    obj.time = time
+  })
+
+  const newContent = await n.read(file)
+  t.deepEqual(newContent, { time })
+
+  await n.delete(file)
+})
+
+test("modify uses returned object", async t => {
+  const n = new Nehemiah(cwd)
+  const time = new Date().getTime()
+  const file = "modify-returned.json"
+  await n.write(file, {})
+
+  await n.modify<any>(file, async obj => {
+    return { time }
+  })
+
+  const newContent = await n.read(file)
+  t.deepEqual(newContent, { time })
+
+  await n.delete(file)
+})
