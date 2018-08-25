@@ -5,6 +5,7 @@ import chalk from "chalk"
 export class Logger {
 
   public warn(...args) {
+    args = ["[nehemiah]", ...args]
     console.log(...args.map(arg => chalk.yellow(arg)))
   }
 
