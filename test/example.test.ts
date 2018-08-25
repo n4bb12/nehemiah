@@ -11,12 +11,12 @@ test("readme usage example", async t => {
     p.author = "Esra"
 
     if (!Array.isArray(p.keywords) || p.keywords.length < 3) {
-      n.warn("not enough keywords")
+      n.warn("Not enough keywords")
     }
   })
 
-  if (!n.exists("license*")) {
-    n.warn("missing license")
+  if (!await n.exists("license*")) {
+    n.warn("Missing license")
   }
 
   await n.delete("*.log")
