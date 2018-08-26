@@ -19,8 +19,8 @@
 </table>
 
 <p align="center">
-  <a href="https://circleci.com/gh/n4bb12/nehemiah">
-    <img alt="CircleCI" src="https://img.shields.io/circleci/project/github/n4bb12/nehemiah/master.svg?style=flat-square&label=CircleCI&logo=circleci">
+  <a href="https://circleci.com/gh/n4bb12/workflows/nehemiah">
+    <img alt="CircleCI" src="https://img.shields.io/circleci/project/github/n4bb12/nehemiah.svg?style=flat-square&label=CircleCI&logo=circleci">
   </a>
   <a href="https://raw.githubusercontent.com/n4bb12/nehemiah/master/LICENSE">
     <img alt="License" src="https://img.shields.io/badge/License-ISC-lightgrey.svg?style=flat-square">
