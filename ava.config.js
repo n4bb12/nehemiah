@@ -5,7 +5,7 @@ export default {
   extensions: ["ts"],
   failFast: false,
   failWithoutAssertions: false,
-  files: ["test/**/*.ts"],
+  files: ["test/**/*.test.ts"],
   require: ["ts-node/register"],
   sources: ["**/*.ts"],
   verbose: true,
