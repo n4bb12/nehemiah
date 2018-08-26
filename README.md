@@ -32,7 +32,7 @@
 
 ## About
 
-Basically monorepos without the monorepo.  
+Basically monorepos without the monorepo.
 Nehemiah synchronizes directories based on code you write using a simple API.
 
 ## Install
@@ -50,7 +50,7 @@ import Nehemiah from "nehemiah"
 
 const projects = ["a", "b", "c"]
 
-projects.forEach(dir => {
+projects.forEach(async dir => {
   const n = new Nehemiah(dir)
 
   await n.modify("package.json", async p => {

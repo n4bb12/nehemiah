@@ -1,11 +1,9 @@
-import test from "ava"
-
 import Nehemiah from "../src"
 
-const cwd = __dirname + "/example-project"
+const projects = ["a", "b", "c"]
 
-test("readme usage example", async t => {
-  const n = new Nehemiah(cwd)
+projects.forEach(async dir => {
+  const n = new Nehemiah(dir)
 
   await n.modify<any>("package.json", async p => {
     p.author = "Esra"
@@ -20,7 +18,7 @@ test("readme usage example", async t => {
   }
 
   await n.delete("*.log")
-  await n.copy(__dirname, "..", ".editorconfig").to(".editorconfig")
-  // await n.run("yarn upgrade")
-  // await n.run("git fetch --prune")
+  await n.copy(__dirname, "templates", ".editorconfig").to(".editorconfig")
+  await n.run("yarn upgrade")
+  await n.run("git fetch --prune")
 })
