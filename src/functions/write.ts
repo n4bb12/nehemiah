@@ -8,7 +8,7 @@ import { getConverter } from "./convert"
 
 const fsWriteFile = pify(fs.writeFile)
 
-export async function writeFile<T>(context: Context, filename: string, value: T): Nothing {
+export async function writeFile(context: Context, filename: string, value: any): Nothing {
   const converter = getConverter(filename)
   const file = path.join(context.cwd, filename)
   const text = converter.stringify(value)
