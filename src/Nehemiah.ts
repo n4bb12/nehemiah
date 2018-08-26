@@ -7,6 +7,7 @@ import {
   findOneFileOrWarning,
   modifyFile,
   readFile,
+  runCmd,
   writeFile,
 } from "./functions"
 import { Logger } from "./logger"
@@ -55,6 +56,10 @@ export default class Nehemiah {
 
   public async modify<T>(sourceGlob: string, modifier: Modifier<T>): Nothing {
     return modifyFile<T>(this.context, sourceGlob, modifier)
+  }
+
+  public async run(cmd: string) {
+    return runCmd(this.context, cmd)
   }
 
   public warn(...args): void {
