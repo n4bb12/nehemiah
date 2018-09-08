@@ -50,8 +50,8 @@ export default class Nehemiah {
     return readFile<T>(this.context, filename)
   }
 
-  public async write<T>(filename: string, value: T): Nothing {
-    return writeFile(this.context, filename, value)
+  public async write<T = any>(filename: string, value: T): Nothing {
+    return writeFile<T>(this.context, filename, value)
   }
 
   public async modify<T = any>(sourceGlob: string, modifier: Modifier<T>): Nothing {

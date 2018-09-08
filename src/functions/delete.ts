@@ -9,6 +9,7 @@ const defaultOptions = {
   expandDirectories: true,
   gitignore: false,
   onlyFiles: false,
+  force: true,
 }
 
 /**
