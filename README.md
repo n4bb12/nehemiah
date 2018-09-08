@@ -4,7 +4,7 @@
 </h1>
 
 <p align="center">
-  A library for managing repositories
+  A library for managing repositories (Early Draft)
 </p>
 
 <table>
@@ -20,20 +20,32 @@
 
 <p align="center">
   <a href="https://circleci.com/gh/n4bb12/workflows/nehemiah">
-    <img alt="CircleCI" src="https://img.shields.io/circleci/project/github/n4bb12/nehemiah.svg?style=flat-square&label=CircleCI&logo=circleci">
+    <img alt="CircleCI" src="https://flat.badgen.net/circleci/github/n4bb12/nehemiah?icon=circleci">
+  </a>
+  <a href="https://david-dm.org/n4bb12/nehemiah">
+    <img alt="Coverage" src="https://flat.badgen.net/codecov/c/github/n4bb12/nehemiah?icon=codecov">
+  </a>
+  <a href="https://lgtm.com/projects/g/n4bb12/nehemiah/alerts">
+    <img alt="LGTM" src="https://flat.badgen.net/lgtm/alerts/g/n4bb12/nehemiah?icon=lgtm">
+  </a>
+  <a href="https://david-dm.org/n4bb12/nehemiah">
+    <img alt="Dependencies" src="https://flat.badgen.net/david/dep/n4bb12/nehemiah?icon=npm">
+  </a>
+  <a href="https://www.npmjs.com/package/nehemiah">
+    <img alt="Version" src="https://flat.badgen.net/npm/v/nehemiah?icon=npm">
   </a>
   <a href="https://raw.githubusercontent.com/n4bb12/nehemiah/master/LICENSE">
-    <img alt="License" src="https://img.shields.io/badge/License-ISC-lightgrey.svg?style=flat-square">
+    <img alt="License" src="https://flat.badgen.net/github/license/n4bb12/nehemiah?icon=github">
   </a>
-  <a href="#">
-    <img alt="Status" src="https://img.shields.io/badge/Status-Working%20Draft-EE96B0.svg?style=flat-square">
+  <a href="https://github.com/n4bb12/nehemiah/issues/new/choose">
+    <img alt="Issues" src="https://flat.badgen.net/badge/github/create issue/pink?icon=github">
   </a>
 </p>
 
 ## About
 
 Basically monorepos without the monorepo.
-Nehemiah synchronizes directories based on code you write using a simple API.
+Nehemiah synchronizes directories and executes tasks within them, based on code you write using a simple API.
 
 ## Install
 
