@@ -29,7 +29,7 @@ export async function findOneFileOrError(context: Context, glob: string): File {
   return filenames[0]
 }
 
-export async function findOneFileOrWarning(context: Context, glob: string): File {
+export async function findOneFileOrWarn(context: Context, glob: string): File {
   const filenames = await findFiles(context, glob)
   if (filenames.length === 0) {
     context.logger.warn("File not found: " + glob)

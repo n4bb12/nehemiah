@@ -4,7 +4,7 @@ import {
   fileExists,
   findFiles,
   findOneFileOrError,
-  findOneFileOrWarning,
+  findOneFileOrWarn,
   modifyFile,
   readFile,
   runCmd,
@@ -31,7 +31,7 @@ export default class Nehemiah {
   }
 
   public async findOneOrWarning(glob: string): File {
-    return findOneFileOrWarning(this.context, glob)
+    return findOneFileOrWarn(this.context, glob)
   }
 
   public async exists(glob: string): File {

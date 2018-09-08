@@ -5,12 +5,12 @@ import pify from "pify"
 import { Context } from "../types"
 
 import { getConverter } from "./convert"
-import { findOneFileOrWarning } from "./find"
+import { findOneFileOrWarn } from "./find"
 
 const fsReadFile = pify(fs.readFile)
 
 export async function readFile<T>(context: Context, glob: string): Promise<T | null> {
-  const filename = await findOneFileOrWarning(context, glob)
+  const filename = await findOneFileOrWarn(context, glob)
   if (!filename) {
     return null
   }
