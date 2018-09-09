@@ -11,9 +11,6 @@ export async function modifyFile<T>(context: Context, glob: string, modifier: Mo
   }
 
   let value = await readFile<T>(context, glob)
-  if (!value) {
-    return
-  }
   value = await modifier(value) || value
 
   await writeFile(context, filename, value)

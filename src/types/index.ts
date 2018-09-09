@@ -3,7 +3,7 @@ import { Logger } from "../logger"
 export type File = Promise<string>
 export type Files = Promise<string[]>
 export type Nothing = Promise<void>
-export type Modifier<T> = (obj: T) => Promise<T | undefined>
+export type Modifier<T> = (obj: T | undefined) => Promise<T | undefined>
 
 export interface To {
   to(target: string): Nothing

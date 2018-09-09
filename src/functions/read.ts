@@ -9,10 +9,10 @@ import { findOneFileOrWarn } from "./find"
 
 const fsReadFile = pify(fs.readFile)
 
-export async function readFile<T>(context: Context, glob: string): Promise<T | null> {
+export async function readFile<T>(context: Context, glob: string): Promise<T | undefined> {
   const filename = await findOneFileOrWarn(context, glob)
   if (!filename) {
-    return null
+    return
   }
 
   const converter = getConverter(filename)

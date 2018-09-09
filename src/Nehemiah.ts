@@ -46,7 +46,7 @@ export default class Nehemiah {
     return deleteFiles(this.context, globs)
   }
 
-  public async read<T = any>(filename: string): Promise<T | null> {
+  public async read<T = any>(filename: string): Promise<T | undefined> {
     return readFile<T>(this.context, filename)
   }
 
