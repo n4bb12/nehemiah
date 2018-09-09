@@ -34,7 +34,7 @@ jobs:
           at: .
       - run: yarn test:ci
       - store_test_results:
-          path: reports/coverage/xunit.xml
+          path: reports/coverage
 
   prepublish:
     docker:
