@@ -6,7 +6,7 @@ import Nehemiah from "../src"
 const cwd = process.cwd() + "/test"
 const noop = x => x
 
-test("missing file logs warning", async t => {
+test("missing file causes warning", async t => {
   const n = new Nehemiah(cwd)
   const loggerWarn = sinon.spy(n.logger, "warn")
   const missingFile = "missing-file"

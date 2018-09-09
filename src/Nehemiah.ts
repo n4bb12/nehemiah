@@ -47,16 +47,16 @@ export default class Nehemiah {
     return deleteFiles(this.context, globs)
   }
 
-  public async read<T = any>(filename: string): Promise<T | undefined> {
-    return readFile<T>(this.context, filename)
+  public async read<T = any>(glob: string): Promise<T | undefined> {
+    return readFile<T>(this.context, glob)
   }
 
   public async write<T = any>(filename: string, value: T): Nothing {
     return writeFile<T>(this.context, filename, value)
   }
 
-  public async modify<T = any>(sourceGlob: string, modifier: Modifier<T>): Nothing {
-    return modifyFile<T>(this.context, sourceGlob, modifier)
+  public async modify<T = any>(glob: string, modifier: Modifier<T>): Nothing {
+    return modifyFile<T>(this.context, glob, modifier)
   }
 
   public async merge(globs: string | string[], filename: string): Nothing {
