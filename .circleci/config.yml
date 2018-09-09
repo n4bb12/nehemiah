@@ -18,21 +18,13 @@ jobs:
           root: .
           paths: .
 
-  lint_src:
+  lint:
     docker:
       - image: circleci/node:8
     steps:
       - attach_workspace:
           at: .
       - run: yarn lint:src
-
-  lint_test:
-    docker:
-      - image: circleci/node:8
-    steps:
-      - attach_workspace:
-          at: .
-      - run: yarn lint:test
 
   test:
     docker:
@@ -57,10 +49,7 @@ workflows:
   default:
     jobs:
       - install
-      - lint_src:
-          requires:
-            - install
-      - lint_test:
+      - lint:
           requires:
             - install
       - test:
