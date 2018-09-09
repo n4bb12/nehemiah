@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "declaration": false,
+    "inlineSourceMap": true,
+    "outDir": "dist_test",
+    "baseUrl": "."
+  },
+  "extends": "./tsconfig.json",
+  "include": ["src/**/*", "test/**/*"]
+}

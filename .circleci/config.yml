@@ -18,44 +18,54 @@ jobs:
           root: .
           paths: .
 
-  build:
+  lint_src:
     docker:
       - image: circleci/node:8
     steps:
       - attach_workspace:
           at: .
-      - run: yarn build
-      - persist_to_workspace:
-          root: .
-          paths: dist
+      - run: yarn lint:src
 
-  lint:
+  lint_test:
     docker:
       - image: circleci/node:8
     steps:
       - attach_workspace:
           at: .
-      - run: yarn lint
+      - run: yarn lint:test
 
-  unit_tests:
+  test:
     docker:
       - image: circleci/node:8
     steps:
       - attach_workspace:
           at: .
       - run: yarn test:ci
+      - store_test_results:
+          path: reports/coverage/xunit.xml
+
+  prepublish:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - attach_workspace:
+          at: .
+      - run: yarn prepublishOnly
 
 workflows:
   version: 2
   default:
     jobs:
       - install
-      - build:
+      - lint_src:
           requires:
             - install
-      - lint:
+      - lint_test:
           requires:
             - install
-      - unit_tests:
+      - test:
+          requires:
+            - install
+      - prepublish:
           requires:
             - install

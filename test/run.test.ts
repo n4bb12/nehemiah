@@ -2,7 +2,7 @@ import test from "ava"
 
 import Nehemiah from "../src"
 
-const cwd = __dirname
+const cwd = process.cwd() + "/test"
 
 function testCmd(title: string, filename: string, command: string) {
   test(title, async t => {

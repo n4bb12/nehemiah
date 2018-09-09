@@ -3,7 +3,7 @@ import sinon from "sinon"
 
 import Nehemiah from "../src"
 
-const cwd = __dirname
+const cwd = process.cwd() + "/test"
 const noop = x => x
 
 test("missing file logs warning", async t => {
