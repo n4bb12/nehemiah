@@ -1,4 +1,5 @@
 import {
+  CmdResult,
   copyFile,
   deleteFiles,
   fileExists,
@@ -12,7 +13,7 @@ import {
   writeFile,
 } from "./functions"
 import { Logger } from "./logger"
-import { Context, File, Files, Modifier, Nothing, To } from "./types"
+import { Context, File, Files, Maybe, Modifier, Nothing, To } from "./types"
 
 export default class Nehemiah {
 
@@ -47,7 +48,7 @@ export default class Nehemiah {
     return deleteFiles(this.context, globs)
   }
 
-  public async read<T = any>(glob: string): Promise<T | undefined> {
+  public async read<T = any>(glob: string): Maybe<T> {
     return readFile<T>(this.context, glob)
   }
 
@@ -63,7 +64,7 @@ export default class Nehemiah {
     return mergeFile(this.context, globs, filename)
   }
 
-  public async run(cmd: string) {
+  public async run(cmd: string): CmdResult {
     return runCmd(this.context, cmd)
   }
 
