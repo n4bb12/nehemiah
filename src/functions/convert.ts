@@ -22,7 +22,6 @@ export function getConverter(filename: string): Converter {
     if (converter) {
       return converter
     }
-    return converters.noop
   }
-  throw new Error("Converter not found: " + filename)
+  return converters.noop
 }
