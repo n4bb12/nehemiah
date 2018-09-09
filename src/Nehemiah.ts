@@ -5,6 +5,7 @@ import {
   findFiles,
   findOneFileOrError,
   findOneFileOrWarn,
+  mergeFile,
   modifyFile,
   readFile,
   runCmd,
@@ -56,6 +57,10 @@ export default class Nehemiah {
 
   public async modify<T = any>(sourceGlob: string, modifier: Modifier<T>): Nothing {
     return modifyFile<T>(this.context, sourceGlob, modifier)
+  }
+
+  public async merge(globs: string | string[], filename: string): Nothing {
+    return mergeFile(this.context, globs, filename)
   }
 
   public async run(cmd: string) {
