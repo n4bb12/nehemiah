@@ -38,7 +38,7 @@
     "test": "ava",
     "test:ci": "yarn build:test && run-p -l test:nyc test:xunit && run-p -l test:cov:*",
     "test:cov:html": "yarn nyc report --reporter html --report-dir reports/coverage/html",
-    "test:cov:lcov": "yarn nyc report --reporter text-lcov > reports/coverage/ava.lcov",
+    "test:cov:lcov": "yarn nyc report --reporter json --report-dir reports/coverage && codecov -f reports/coverage/coverage-final.json",
     "test:nyc": "yarn nyc ava",
     "test:xunit": "ava --tap | tap-xunit > reports/coverage/xunit.xml"
   },

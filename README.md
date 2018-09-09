@@ -22,7 +22,7 @@
   <a href="https://circleci.com/gh/n4bb12/workflows/nehemiah">
     <img alt="CircleCI" src="https://flat.badgen.net/circleci/github/n4bb12/nehemiah?icon=circleci">
   </a>
-  <a href="https://david-dm.org/n4bb12/nehemiah">
+  <a href="https://codecov.io/github/n4bb12/nehemiah">
     <img alt="Coverage" src="https://flat.badgen.net/codecov/c/github/n4bb12/nehemiah?icon=codecov">
   </a>
   <a href="https://lgtm.com/projects/g/n4bb12/nehemiah/alerts">
