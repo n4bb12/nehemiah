@@ -11,7 +11,7 @@ test("missing file causes warning", async t => {
   const loggerWarn = sinon.spy(n.logger, "warn")
   const missingFile = "missing-file"
 
-  await n.modify(missingFile, noop)
+  await n.modify(missingFile).asText(noop)
 
   t.true(loggerWarn.calledOnce)
 })
@@ -19,14 +19,14 @@ test("missing file causes warning", async t => {
 test("modify uses changed object", async t => {
   const n = new Nehemiah(cwd)
   const time = new Date().getTime()
-  const file = "modify-changed.json"
-  await n.write(file, {})
+  const file = "modify-json--changed"
 
-  await n.modify(file, async obj => {
+  await n.write(file).asJson({})
+  await n.modify(file).asJson(async obj => {
     obj.time = time
   })
+  const newContent = await n.read(file).asJson()
 
-  const newContent = await n.read(file)
   t.deepEqual(newContent, { time })
 
   await n.delete(file)
@@ -35,31 +35,30 @@ test("modify uses changed object", async t => {
 test("modify uses returned object", async t => {
   const n = new Nehemiah(cwd)
   const time = new Date().getTime()
-  const file = "modify-returned.json"
-  await n.write(file, {})
+  const file = "modify-json--returned"
 
-  await n.modify(file, async obj => {
+  await n.write(file).asJson({})
+  await n.modify(file).asJson(async obj => {
     return { time }
   })
+  const newContent = await n.read(file).asJson()
 
-  const newContent = await n.read(file)
   t.deepEqual(newContent, { time })
 
   await n.delete(file)
 })
 
-test("unknown extension uses the default noop converter", async t => {
+test("modify text", async t => {
   const n = new Nehemiah(cwd)
-  const time = new Date().getTime()
-  const file = "modify-unknown"
-  await n.write(file, "as")
+  const file = "modify-text"
 
-  await n.modify<string>(file, async text => {
-    return text + "df"
+  await n.write(file).asText("text")
+  await n.modify(file).asText(async text => {
+    return "line of " + text
   })
+  const newContent = await n.read(file).asText()
 
-  const newContent = await n.read(file)
-  t.is(newContent, "asdf")
+  t.is(newContent, "line of text")
 
   await n.delete(file)
 })

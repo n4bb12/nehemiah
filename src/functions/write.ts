@@ -4,14 +4,31 @@ import pify from "pify"
 
 import { Context, Nothing } from "../types"
 
-import { getConverter } from "./convert"
-
 const fsWriteFile = pify(fs.writeFile)
 
-export async function writeFile<T>(context: Context, filename: string, value: T): Nothing {
-  const converter = getConverter(filename)
-  const file = path.join(context.cwd, filename)
-  const text = converter.stringify(value)
+export function writeFile(context: Context, filename: string): WriteAs {
+  const write = async (text?: string) => {
+    if (text) {
+      const file = path.join(context.cwd, filename)
+      await fsWriteFile(file, text, "utf8")
+    }
+  }
+  return new WriteAs(write)
+}
 
-  await fsWriteFile(file, text, "utf8")
+export class WriteAs {
+
+  constructor(
+    private readonly write: (text?: string) => Nothing,
+  ) { }
+
+  public async asText(text?: string): Nothing {
+    await this.write(text)
+  }
+
+  public async asJson(value?: any): Nothing {
+    const text = JSON.stringify(value)
+    await this.write(text)
+  }
+
 }

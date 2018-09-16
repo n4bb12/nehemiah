@@ -2,10 +2,15 @@ import Nehemiah from "../src"
 
 const projects = ["a", "b", "c"]
 
+interface Package {
+  author: string
+  keywords: string[]
+}
+
 projects.forEach(async dir => {
   const n = new Nehemiah(dir)
 
-  await n.modify("package.json", async p => {
+  await n.modify("package.json").asJson<Package>(p => {
     p.author = "Esra"
 
     if (!Array.isArray(p.keywords) || p.keywords.length < 3) {

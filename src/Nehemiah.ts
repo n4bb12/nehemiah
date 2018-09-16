@@ -7,13 +7,16 @@ import {
   findOneFileOrError,
   findOneFileOrWarn,
   mergeFile,
+  ModifyAs,
   modifyFile,
+  ReadAs,
   readFile,
   runCmd,
+  WriteAs,
   writeFile,
 } from "./functions"
 import { Logger } from "./logger"
-import { Context, File, Files, Maybe, Modifier, Nothing, To } from "./types"
+import { Context, CopyTo, File, Files, Nothing } from "./types"
 
 export default class Nehemiah {
 
@@ -40,7 +43,7 @@ export default class Nehemiah {
     return fileExists(this.context, glob)
   }
 
-  public copy(glob: string, ...globs: string[]): To {
+  public copy(glob: string, ...globs: string[]): CopyTo {
     return copyFile(this.context, glob, ...globs)
   }
 
@@ -48,16 +51,16 @@ export default class Nehemiah {
     return deleteFiles(this.context, globs)
   }
 
-  public async read<T = any>(glob: string): Maybe<T> {
-    return readFile<T>(this.context, glob)
+  public read(glob: string): ReadAs {
+    return readFile(this.context, glob)
   }
 
-  public async write<T = any>(filename: string, value: T): Nothing {
-    return writeFile<T>(this.context, filename, value)
+  public write(filename: string): WriteAs {
+    return writeFile(this.context, filename)
   }
 
-  public async modify<T = any>(glob: string, modifier: Modifier<T>): Nothing {
-    return modifyFile<T>(this.context, glob, modifier)
+  public modify(filename: string): ModifyAs {
+    return modifyFile(this.context, filename)
   }
 
   public async merge(globs: string | string[], filename: string): Nothing {

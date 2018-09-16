@@ -1,7 +1,7 @@
 import test from "ava"
 import sinon from "sinon"
 
-import Nehemiah, { mergeFile } from "../src"
+import Nehemiah from "../src"
 
 const cwd = process.cwd() + "/test"
 
@@ -26,8 +26,8 @@ test("file gets created without warning and contains source fragments", async t 
   const sourceFileB = "file-b"
   const targetFile = "file-merged"
 
-  await n.write(sourceFileA, sourceFileA)
-  await n.write(sourceFileB, sourceFileB)
+  await n.write(sourceFileA).asText(sourceFileA)
+  await n.write(sourceFileB).asText(sourceFileB)
   await n.delete(targetFile)
 
   t.truthy(await n.exists(sourceFileA))
@@ -39,7 +39,7 @@ test("file gets created without warning and contains source fragments", async t 
   t.truthy(await n.exists(targetFile))
   t.false(loggerWarn.calledOnce)
 
-  const mergedContent = await n.read<string>(targetFile)
+  const mergedContent = await n.read(targetFile).asText()
   t.true(mergedContent!.includes(sourceFileA))
   t.true(mergedContent!.includes(sourceFileB))
 
