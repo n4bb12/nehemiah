@@ -19,8 +19,8 @@
   "files": [
     "dist"
   ],
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "run-p build:src build:test",
     "build:src": "run-s clean:src compile:src",
