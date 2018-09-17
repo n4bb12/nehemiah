@@ -34,4 +34,12 @@ export class ReadAs {
     const text = await this.read()
     return text ? JSON.parse(text) : null
   }
+
+  public async asLines(): Maybe<string[]> {
+    const text = await this.read()
+    return text
+      ? text.split(/[\r\n]+/).map(line => line.trim()).filter(line => line)
+      : undefined
+  }
+
 }

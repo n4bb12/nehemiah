@@ -28,4 +28,10 @@ export class ModifyAs {
     await this.write.asJson(modified)
   }
 
+  public async asLines(modify: Modifier<string[]>): Nothing {
+    const value = await this.read.asLines()
+    const modified = value ? await modify(value) || value : value
+    await this.write.asLines(modified)
+  }
+
 }

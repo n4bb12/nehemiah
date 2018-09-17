@@ -62,3 +62,18 @@ test("modify text", async t => {
 
   await n.delete(file)
 })
+
+test("modify lines", async t => {
+  const n = new Nehemiah(cwd)
+  const file = "modify-lines"
+
+  await n.write(file).asLines(["lines"])
+  await n.modify(file).asLines(async lines => {
+    return ["first line", ...lines, "last line"]
+  })
+  const newContent = await n.read(file).asLines()
+
+  t.deepEqual(newContent, ["first line", "lines", "last line"])
+
+  await n.delete(file)
+})

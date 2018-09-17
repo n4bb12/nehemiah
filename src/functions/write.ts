@@ -27,7 +27,12 @@ export class WriteAs {
   }
 
   public async asJson(value?: any): Nothing {
-    const text = JSON.stringify(value)
+    const text = value ? JSON.stringify(value) : value
+    await this.write(text)
+  }
+
+  public async asLines(value?: string[]): Nothing {
+    const text = value ? value.join("\n") : value
     await this.write(text)
   }
 
