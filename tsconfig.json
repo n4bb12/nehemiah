@@ -2,15 +2,18 @@
   "$schema": "http://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "declaration": true,
+    "declarationMap": true,
     "esModuleInterop": true,
-    "lib": ["es2018"],
+    "lib": ["esnext"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": false,
     "outDir": "dist",
-    "baseUrl": "src",
+    "rootDir": "src",
+    "skipLibCheck": true,
+    "sourceMap": true,
     "strict": true,
-    "target": "es2016"
+    "target": "esnext"
   },
-  "include": ["src/**/*"]
+  "include": ["src"]
 }
