@@ -1,3 +1,4 @@
+import deepmerge from "deepmerge"
 import execa, { ExecaReturns } from "execa"
 
 import { Context } from "../types"
@@ -9,7 +10,7 @@ const defaultOptions: execa.Options = {
 }
 
 export async function runCmd(context: Context, cmd: string): CmdResult {
-  const options = Object.assign({ cwd: context.cwd }, defaultOptions)
+  const options = deepmerge({ cwd: context.cwd }, defaultOptions)
   const command = `sh -c \"${cmd.replace(/"/g, `\\\"`)}\"`
   return execa.shell(command, options)
 }
