@@ -1,12 +1,12 @@
 import fs from "graceful-fs"
 import path from "path"
-import pify from "pify"
+import { promisify } from "util"
 
 import { Context, Maybe } from "../types"
 
 import { findOneFileOrWarn } from "./find"
 
-const fsReadFile = pify(fs.readFile)
+const fsReadFile = promisify(fs.readFile)
 
 export function readFile(context: Context, glob: string): ReadAs {
   const read = async () => {

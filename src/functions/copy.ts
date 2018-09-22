@@ -1,5 +1,5 @@
 import cpFile from "cp-file"
-import deepmerge from "deepmerge"
+import { merge } from "lodash"
 import path from "path"
 
 import { Context, Nothing } from "../types"
@@ -25,7 +25,7 @@ export function copyFile(context: Context, glob: string, ...globs: string[]): Co
       const source = await findOneFileOrError(context, sourceGlob)
       const sourceFile = inContext(source, context)
       const targetFile = inContext(target, context)
-      const options = deepmerge({ cwd: context.cwd }, defaultOptions)
+      const options = merge({ cwd: context.cwd }, defaultOptions)
       return cpFile(sourceFile, targetFile, options)
     },
   }

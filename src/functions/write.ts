@@ -1,10 +1,10 @@
 import fs from "graceful-fs"
 import path from "path"
-import pify from "pify"
+import { promisify } from "util"
 
 import { Context, Nothing } from "../types"
 
-const fsWriteFile = pify(fs.writeFile)
+const fsWriteFile = promisify(fs.writeFile)
 
 export function writeFile(context: Context, filename: string): WriteAs {
   const write = async (text?: string) => {

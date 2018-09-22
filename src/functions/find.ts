@@ -1,5 +1,5 @@
-import deepmerge from "deepmerge"
 import globby from "globby"
+import { merge } from "lodash"
 
 import { Context, File, Files } from "../types"
 import { GlobbyOptions } from "../types/GlobbyOptions"
@@ -18,7 +18,7 @@ const defaultOptions: FindOptions = {
  * https://github.com/mrmlnc/fast-glob#options-1
  */
 export async function findFiles(context: Context, globs: string | string[], options?: FindOptions): Files {
-  const globbyOptions = deepmerge({ cwd: context.cwd }, defaultOptions, options)
+  const globbyOptions = merge({ cwd: context.cwd }, defaultOptions, options)
   return globby(globs, globbyOptions)
 }
 
