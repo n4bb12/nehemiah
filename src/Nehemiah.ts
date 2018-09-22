@@ -1,5 +1,4 @@
 import {
-  CmdResult,
   copyFile,
   CopyTo,
   deleteFiles,
@@ -13,7 +12,9 @@ import {
   modifyFile,
   ReadAs,
   readFile,
-  runCmd,
+  runCommand,
+  RunOptions,
+  RunResult,
   WriteAs,
   writeFile,
 } from "./functions"
@@ -33,12 +34,12 @@ export default class Nehemiah {
     return findFiles(this.context, globs, options)
   }
 
-  public async findOneOrError(glob: string): File {
-    return findOneFileOrError(this.context, glob)
+  public async findOneOrError(glob: string, options?: FindOptions): File {
+    return findOneFileOrError(this.context, glob, options)
   }
 
-  public async findOneOrWarning(glob: string): File {
-    return findOneFileOrWarn(this.context, glob)
+  public async findOneOrWarning(glob: string, options?: FindOptions): File {
+    return findOneFileOrWarn(this.context, glob, options)
   }
 
   public async exists(glob: string): File {
@@ -69,8 +70,8 @@ export default class Nehemiah {
     return mergeFile(this.context, globs, filename)
   }
 
-  public async run(cmd: string): CmdResult {
-    return runCmd(this.context, cmd)
+  public async run(cmd: string, options?: RunOptions): RunResult {
+    return runCommand(this.context, cmd, options)
   }
 
   public warn(...args): void {
