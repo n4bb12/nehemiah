@@ -1,6 +1,7 @@
 import {
   CmdResult,
   copyFile,
+  CopyTo,
   deleteFiles,
   fileExists,
   findFiles,
@@ -16,7 +17,7 @@ import {
   writeFile,
 } from "./functions"
 import { Logger } from "./logger"
-import { Context, CopyTo, File, Files, Nothing } from "./types"
+import { Context, File, Files, Nothing } from "./types"
 
 export default class Nehemiah {
 

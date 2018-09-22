@@ -2,10 +2,14 @@ import cpFile from "cp-file"
 import deepmerge from "deepmerge"
 import path from "path"
 
-import { Context, CopyTo, Nothing } from "../types"
+import { Context, Nothing } from "../types"
 
 import { findOneFileOrError } from "./find"
 import { inContext } from "./path"
+
+export interface CopyTo {
+  to(target: string): Nothing
+}
 
 const defaultOptions = {
   overwrite: true,
