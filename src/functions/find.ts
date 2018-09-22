@@ -2,11 +2,14 @@ import deepmerge from "deepmerge"
 import globby from "globby"
 
 import { Context, File, Files } from "../types"
+import { GlobbyOptions } from "../types/GlobbyOptions"
 
-export const defaultOptions = {
+export type FindOptions = GlobbyOptions
+
+const defaultOptions: FindOptions = {
   dot: true,
   expandDirectories: true,
-  gitignore: true,
+  gitignore: false,
   onlyFiles: true,
 }
 
@@ -14,13 +17,13 @@ export const defaultOptions = {
  * https://github.com/sindresorhus/globby#api
  * https://github.com/mrmlnc/fast-glob#options-1
  */
-export async function findFiles(context: Context, globs: string | string[]): Files {
-  const options = deepmerge({ cwd: context.cwd }, defaultOptions)
-  return globby(globs, options)
+export async function findFiles(context: Context, globs: string | string[], options?: FindOptions): Files {
+  const globbyOptions = deepmerge({ cwd: context.cwd }, defaultOptions, options)
+  return globby(globs, globbyOptions)
 }
 
-export async function findOneFileOrError(context: Context, glob: string): File {
-  const filenames = await findFiles(context, glob)
+export async function findOneFileOrError(context: Context, glob: string, options?: FindOptions): File {
+  const filenames = await findFiles(context, glob, options)
   if (filenames.length === 0) {
     throw new Error("File not found: " + JSON.stringify(glob))
   }
@@ -30,8 +33,8 @@ export async function findOneFileOrError(context: Context, glob: string): File {
   return filenames[0]
 }
 
-export async function findOneFileOrWarn(context: Context, glob: string): File {
-  const filenames = await findFiles(context, glob)
+export async function findOneFileOrWarn(context: Context, glob: string, options?: FindOptions): File {
+  const filenames = await findFiles(context, glob, options)
   if (filenames.length === 0) {
     context.logger.warn("File not found: " + JSON.stringify(glob))
     return filenames[0]

@@ -7,6 +7,7 @@ import {
   findFiles,
   findOneFileOrError,
   findOneFileOrWarn,
+  FindOptions,
   mergeFile,
   ModifyAs,
   modifyFile,
@@ -28,8 +29,8 @@ export default class Nehemiah {
     public readonly cwd: string = process.cwd(),
   ) { }
 
-  public async find(globs: string | string[]): Files {
-    return findFiles(this.context, globs)
+  public async find(globs: string | string[], options?: FindOptions): Files {
+    return findFiles(this.context, globs, options)
   }
 
   public async findOneOrError(glob: string): File {

@@ -1,4 +1,5 @@
 export * from "./Context"
+export * from "./GlobbyOptions"
 
 export type File = Promise<string>
 export type Files = Promise<string[]>
