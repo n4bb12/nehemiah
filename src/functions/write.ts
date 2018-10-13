@@ -27,7 +27,7 @@ export class WriteAs {
   }
 
   public async asJson(value?: any): Nothing {
-    const text = value ? JSON.stringify(value) : value
+    const text = value ? JSON.stringify(value, null, 2) : value
     await this.write(text)
   }
 
