@@ -53,6 +53,7 @@
     "lodash": "^4.17.11"
   },
   "devDependencies": {
+    "@n4bb12/config-tslint": "^1.0.0",
     "@types/cp-file": "^4.2.0",
     "@types/cpy": "^5.1.0",
     "@types/del": "^3.0.1",
@@ -72,5 +73,6 @@
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "typescript": "^3.1.1"
-  }
+  },
+  "$schema": "http://json.schemastore.org/package"
 }
