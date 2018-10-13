@@ -74,7 +74,7 @@ export default class Nehemiah {
     return runCommand(this.context, cmd, options)
   }
 
-  public warn(...args): void {
+  public warn(...args: any[]): void {
     this.logger.warn(...args)
   }
 

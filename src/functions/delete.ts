@@ -2,7 +2,12 @@ import del from "del"
 import path from "path"
 
 import { Context, Files } from "../types"
+
 import { fileExists } from "./exists"
+
+export interface Options extends del.Options {
+  cwd: string
+}
 
 const defaultOptions = {
   dot: true,
@@ -16,7 +21,7 @@ const defaultOptions = {
  * https://github.com/sindresorhus/del#api
  */
 export async function deleteFiles(context: Context, globs: string | string[]): Files {
-  const options = Object.assign({ cwd: context.cwd }, defaultOptions)
+  const options: Options = Object.assign({ cwd: context.cwd }, defaultOptions)
   if (!Array.isArray(globs)) {
     globs = [globs]
   }
@@ -28,7 +33,7 @@ export async function deleteFiles(context: Context, globs: string | string[]): F
   })
 }
 
-async function deleteFile(context: Context, glob: string, options): Files {
+async function deleteFile(context: Context, glob: string, options: Options): Files {
   const exists = await fileExists(context, glob)
   if (exists) {
     const file = path.join(options.cwd, exists)

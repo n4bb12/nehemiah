@@ -4,7 +4,7 @@ import sinon from "sinon"
 import Nehemiah from "../src"
 
 const cwd = process.cwd() + "/test"
-const noop = x => x
+const noop = <T>(x: T) => x
 
 test("missing file causes warning", async t => {
   const n = new Nehemiah(cwd)

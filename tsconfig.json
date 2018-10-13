@@ -4,16 +4,15 @@
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
-    "lib": ["esnext"],
+    "lib": ["es2015"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "noImplicitAny": false,
     "outDir": "dist",
     "rootDir": "src",
-    "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "esnext"
+    "target": "es2015",
+    "types": []
   },
   "include": ["src"]
 }
