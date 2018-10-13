@@ -30,7 +30,7 @@ export class ReadAs {
     return this.read()
   }
 
-  public async asJson<T>(): Maybe<T> {
+  public async asJson<T = any>(): Maybe<T> {
     const text = await this.read()
     return text ? JSON.parse(text) : null
   }

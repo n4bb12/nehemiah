@@ -23,7 +23,7 @@ export class ModifyAs {
   }
 
   public async asJson<T = any>(modify: Modifier<T>): Nothing {
-    const value = await this.read.asJson<T>()
+    const value = await this.read.asJson()
     const modified = value ? await modify(value) || value : value
     await this.write.asJson(modified)
   }

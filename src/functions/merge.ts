@@ -4,7 +4,7 @@ import { findFiles } from "./find"
 import { readFile } from "./read"
 import { writeFile } from "./write"
 
-export async function mergeFile<T>(context: Context, globs: string | string[], filename: string): Nothing {
+export async function mergeFile<T = any>(context: Context, globs: string | string[], filename: string): Nothing {
   const files = await findFiles(context, globs)
   if (files.length === 0) {
     context.logger.warn("No source files found: " + JSON.stringify(globs) + ": Skipping merge")
