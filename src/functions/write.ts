@@ -5,12 +5,14 @@ import { promisify } from "util"
 import { Context, Nothing } from "../types"
 
 const fsWriteFile = promisify(fs.writeFile)
+const finalNewLine = "\n"
 
 export function writeFile(context: Context, filename: string): WriteAs {
   const write = async (text?: string) => {
     if (text) {
       const file = path.join(context.cwd, filename)
-      await fsWriteFile(file, text, "utf8")
+      const content = text.trim() + finalNewLine
+      await fsWriteFile(file, content, "utf8")
     }
   }
   return new WriteAs(write)
