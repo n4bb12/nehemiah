@@ -1,3 +1,5 @@
+import path from "path"
+
 import {
   copyFile,
   CopyTo,
@@ -24,6 +26,8 @@ import { Context, File, Files, Nothing } from "./types"
 export default class Nehemiah {
 
   public readonly logger = new Logger()
+  public readonly name = path.basename(this.cwd)
+
   private readonly context: Context = this
 
   constructor(

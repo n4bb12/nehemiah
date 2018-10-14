@@ -9,7 +9,7 @@ test("uses current cwd when no directory is passed", async t => {
   t.is(n.cwd, process.cwd())
 })
 
-test("warn", async t => {
+test("warn works", async t => {
   const n = new Nehemiah()
   const consoleLog = sinon.spy(console, "log")
 
@@ -19,4 +19,9 @@ test("warn", async t => {
   t.true((consoleLog.firstCall.lastArg as string).includes("sample warning"))
 
   consoleLog.restore()
+})
+
+test("name equals the cwd basename", async t => {
+  const n = new Nehemiah()
+  t.is(n.name, "nehemiah")
 })
