@@ -23,5 +23,5 @@ test("warn works", async t => {
 
 test("name equals the cwd basename", async t => {
   const n = new Nehemiah()
-  t.is(n.name, "nehemiah")
+  t.is(n.name, require("path").basename(process.cwd()))
 })
