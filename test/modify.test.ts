@@ -54,11 +54,11 @@ test("modify text", async t => {
 
   await n.write(file).asText("text")
   await n.modify(file).asText(async text => {
-    return "line of " + text
+    return `line of ${text}`
   })
   const newContent = await n.read(file).asText()
 
-  t.is(newContent, "line of text")
+  t.is(newContent, "line of text\n")
 
   await n.delete(file)
 })

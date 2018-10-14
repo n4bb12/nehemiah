@@ -1,3 +1,6 @@
+/**
+ * https://github.com/avajs/ava#api
+ */
 export default {
   cache: true,
   compileEnhancements: false,
