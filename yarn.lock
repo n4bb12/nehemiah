@@ -333,10 +333,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@n4bb12/config-tslint@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@n4bb12/config-tslint/-/config-tslint-1.0.0.tgz#1790146a74331f27d7fefb661157a5d0537e9131"
-  integrity sha512-txP2nyahuPJ4JvL2qP8erFXsLQm3LtCVzkKOFBlyVVwWuuCK35mympqajX3yd5jfy7zVAfadwcmIkqCNHB0TPw==
+"@n4bb12/config-tslint@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@n4bb12/config-tslint/-/config-tslint-1.2.0.tgz#ff4a6fbea4744de1c8a7fa98d3716cc2356d1093"
+  integrity sha512-tgXqPbH+RJb48uFbpa4MU5he/ZQ+AL3z75FVt5N5/S57Q2TAXvvhNSvHE2ZT0PJ8EZ9jjVzIPEp9tOCGYPAXqg==
 
 "@nodelib/fs.stat@^1.0.1":
   version "1.1.2"

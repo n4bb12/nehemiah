@@ -53,7 +53,7 @@
     "lodash": "^4.17.11"
   },
   "devDependencies": {
-    "@n4bb12/config-tslint": "^1.0.0",
+    "@n4bb12/config-tslint": "^1.2.0",
     "@types/cp-file": "^4.2.0",
     "@types/cpy": "^5.1.0",
     "@types/del": "^3.0.1",
