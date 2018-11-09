@@ -4,7 +4,9 @@
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
-    "lib": ["es2015"],
+    "lib": [
+      "es2015"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "dist",
@@ -14,5 +16,7 @@
     "target": "es2015",
     "types": []
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
