@@ -16,19 +16,19 @@ export class ModifyAs {
     private readonly write: WriteAs,
   ) { }
 
-  public async asText(modify: Modifier<string>): Nothing {
+  async asText(modify: Modifier<string>): Nothing {
     const value = await this.read.asText()
     const modified = value ? await modify(value) || value : value
     await this.write.asText(modified)
   }
 
-  public async asJson<T = any>(modify: Modifier<T>): Nothing {
+  async asJson<T = any>(modify: Modifier<T>): Nothing {
     const value = await this.read.asJson()
     const modified = value ? await modify(value) || value : value
     await this.write.asJson(modified)
   }
 
-  public async asLines(modify: Modifier<string[]>): Nothing {
+  async asLines(modify: Modifier<string[]>): Nothing {
     const value = await this.read.asLines()
     const modified = value ? await modify(value) || value : value
     await this.write.asLines(modified)

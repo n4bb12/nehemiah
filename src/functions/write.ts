@@ -24,16 +24,16 @@ export class WriteAs {
     private readonly write: (text?: string) => Nothing,
   ) { }
 
-  public async asText(text?: string): Nothing {
+  async asText(text?: string): Nothing {
     await this.write(text)
   }
 
-  public async asJson(value?: any): Nothing {
+  async asJson(value?: any): Nothing {
     const text = value ? JSON.stringify(value, null, 2) : value
     await this.write(text)
   }
 
-  public async asLines(value?: string[]): Nothing {
+  async asLines(value?: string[]): Nothing {
     const text = value ? value.join("\n") : value
     await this.write(text)
   }

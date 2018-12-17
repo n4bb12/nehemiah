@@ -26,16 +26,16 @@ export class ReadAs {
     private readonly read: () => Maybe<string>,
   ) { }
 
-  public async asText(): Maybe<string> {
+  async asText(): Maybe<string> {
     return this.read()
   }
 
-  public async asJson<T = any>(): Maybe<T> {
+  async asJson<T = any>(): Maybe<T> {
     const text = await this.read()
     return text ? JSON.parse(text) : null
   }
 
-  public async asLines(): Maybe<string[]> {
+  async asLines(): Maybe<string[]> {
     const text = await this.read()
     return text
       ? text.split(/[\r\n]+/).map(line => line.trim()).filter(line => line)
