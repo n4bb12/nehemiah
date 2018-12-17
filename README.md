@@ -4,7 +4,7 @@
 </h1>
 
 <p align="center">
-  A library for managing repositories (Early Draft)
+  A library for managing repositories
 </p>
 
 <table>
@@ -46,6 +46,19 @@
 
 Basically monorepos without the monorepo.
 Nehemiah synchronizes directories and executes tasks within them, based on code you write using a simple API.
+
+Features include:
+
+- Scan repo for files
+- Test if file exists --> find out what type of project it is, or if a certain dependency/config file is used
+- Copy file --> add file to repo if it doesn't exist, overwrite file, e.g. `tslint.json`
+- Delete file --> remove unwanted files for cleanup, e.g. logfiles
+- Merge file fragments --> insert partials into `README.md`
+- Edit json file --> update `package.json` with standardized values
+- Edit line-based file --> update `.gitignore`
+- Run shell commands in directory --> `yarn install`, `git fetch`, `yarn upgrade`, `sort-package-json`
+- Get warned if something deviates from expectations --> no tests in `package.json`, missing license
+
 
 ## Install
 
