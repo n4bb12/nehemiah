@@ -34,7 +34,7 @@
     "lint:test": "yarn lint:ts -p tsconfig.test.json",
     "lint:ts": "tslint -c tslint.json -t stylish --fix",
     "nyc": "nyc --temp-dir reports/coverage/.nyc_temp",
-    "prepublishOnly": "yarn build:src",
+    "prepack": "yarn build:src",
     "test": "ava",
     "test:ci": "yarn build:test && run-p test:nyc test:xunit && run-p test:cov:*",
     "test:cov:html": "yarn nyc report --reporter html --report-dir reports/coverage/html",
