@@ -1,11 +1,11 @@
-import del from "del"
+import del, { Options as DelOptions } from "del"
 import path from "path"
 
 import { Context, Files } from "../types"
 
 import { fileExists } from "./exists"
 
-export interface Options extends del.Options {
+export interface Options extends DelOptions {
   cwd: string
 }
 
