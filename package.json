@@ -72,7 +72,7 @@
     "sinon": "^7.2.4",
     "tap-xunit": "^2.3.0",
     "ts-node": "^8.0.2",
-    "tslint": "^5.13.0",
+    "tslint": "^5.14.0",
     "typescript": "^3.3.3333"
   },
   "$schema": "http://json.schemastore.org/package"
