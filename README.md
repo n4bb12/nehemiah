@@ -66,19 +66,22 @@ Features include:
 yarn add nehemiah
 ```
 
-## Usage
-
-When the basic [requirements](REQUIREMENTS.md) are implemented, you will be able to use it as shown below:
+## Example
 
 ```ts
 import Nehemiah from "nehemiah"
 
 const projects = ["a", "b", "c"]
 
+interface Package {
+  author: string
+  keywords: string[]
+}
+
 projects.forEach(async dir => {
   const n = new Nehemiah(dir)
 
-  await n.modify("package.json", async p => {
+  await n.modify("package.json").asJson<Package>(p => {
     p.author = "Esra"
 
     if (!Array.isArray(p.keywords) || p.keywords.length < 3) {
@@ -95,6 +98,7 @@ projects.forEach(async dir => {
   await n.run("yarn upgrade")
   await n.run("git fetch --prune")
 })
+
 ```
 
 #

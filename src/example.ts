@@ -1,4 +1,4 @@
-import Nehemiah from "../src"
+import Nehemiah from "nehemiah"
 
 const projects = ["a", "b", "c"]
 
