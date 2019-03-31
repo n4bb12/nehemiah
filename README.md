@@ -19,18 +19,6 @@
 </table>
 
 <p align="center">
-  <a href="https://circleci.com/gh/n4bb12/workflows/nehemiah">
-    <img alt="CircleCI" src="https://flat.badgen.net/circleci/github/n4bb12/nehemiah?icon=circleci">
-  </a>
-  <a href="https://codecov.io/github/n4bb12/nehemiah">
-    <img alt="Coverage" src="https://flat.badgen.net/codecov/c/github/n4bb12/nehemiah?icon=codecov">
-  </a>
-  <a href="https://lgtm.com/projects/g/n4bb12/nehemiah/alerts">
-    <img alt="LGTM" src="https://flat.badgen.net/lgtm/alerts/g/n4bb12/nehemiah?icon=lgtm">
-  </a>
-  <a href="https://david-dm.org/n4bb12/nehemiah">
-    <img alt="Dependencies" src="https://flat.badgen.net/david/dep/n4bb12/nehemiah?icon=npm">
-  </a>
   <a href="https://www.npmjs.com/package/nehemiah">
     <img alt="Version" src="https://flat.badgen.net/npm/v/nehemiah?icon=npm">
   </a>
@@ -39,6 +27,18 @@
   </a>
   <a href="https://github.com/n4bb12/nehemiah/issues/new/choose">
     <img alt="Issues" src="https://flat.badgen.net/badge/github/create issue/pink?icon=github">
+  </a>
+  <a href="https://circleci.com/gh/n4bb12/workflows/nehemiah">
+    <img alt="CircleCI" src="https://flat.badgen.net/circleci/github/n4bb12/nehemiah?icon=circleci">
+  </a>
+  <a href="https://david-dm.org/n4bb12/nehemiah">
+    <img alt="Dependencies" src="https://flat.badgen.net/david/dep/n4bb12/nehemiah?icon=npm">
+  </a>
+  <a href="https://codecov.io/github/n4bb12/nehemiah">
+    <img alt="Coverage" src="https://flat.badgen.net/codecov/c/github/n4bb12/nehemiah?icon=codecov">
+  </a>
+  <a href="https://lgtm.com/projects/g/n4bb12/nehemiah/alerts">
+    <img alt="LGTM" src="https://flat.badgen.net/lgtm/alerts/g/n4bb12/nehemiah?icon=lgtm">
   </a>
 </p>
 
